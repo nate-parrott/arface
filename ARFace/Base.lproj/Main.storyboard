@@ -1,27 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARFace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yvt-Ii-bjI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pF-u1-syv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </arscnView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r28-qE-KO1" customClass="PageSwiperScrollView" customModule="ARFace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FL8-1u-XBT">
+                                <rect key="frame" x="75" y="593" width="225" height="54"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="kcU-km-MS2"/>
+                                    <constraint firstAttribute="width" constant="225" id="nBu-hN-V4i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleRecording" destination="BV1-FR-VrT" eventType="touchUpInside" id="Lie-KL-BiM"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTZ-dw-vm7" userLabel="Post Record">
+                                <rect key="frame" x="38.5" y="593" width="298" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Jc-Kx7">
+                                        <rect key="frame" x="154" y="0.0" width="144" height="54"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="144" id="8Qg-P8-BWH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Place in AR">
+                                            <color key="titleColor" white="0.070000000000000007" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="placeInAR" destination="BV1-FR-VrT" eventType="touchUpInside" id="OVz-ie-Bcz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruq-i6-64j">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="54"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="144" id="ZTb-td-yrL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Start Over">
+                                            <color key="titleColor" white="0.070000000000000007" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startOver" destination="BV1-FR-VrT" eventType="touchUpInside" id="TUr-MG-HFL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ruq-i6-64j" secondAttribute="bottom" id="Igw-QI-t7J"/>
+                                    <constraint firstItem="RTx-Jc-Kx7" firstAttribute="leading" secondItem="ruq-i6-64j" secondAttribute="trailing" constant="10" id="RgZ-SL-RRM"/>
+                                    <constraint firstItem="ruq-i6-64j" firstAttribute="leading" secondItem="kTZ-dw-vm7" secondAttribute="leading" id="aNF-6U-uCb"/>
+                                    <constraint firstAttribute="bottom" secondItem="RTx-Jc-Kx7" secondAttribute="bottom" id="mOg-To-jdL"/>
+                                    <constraint firstAttribute="trailing" secondItem="RTx-Jc-Kx7" secondAttribute="trailing" id="o7s-Fw-i55"/>
+                                    <constraint firstItem="ruq-i6-64j" firstAttribute="top" secondItem="kTZ-dw-vm7" secondAttribute="top" id="oH8-iz-VbY"/>
+                                    <constraint firstItem="RTx-Jc-Kx7" firstAttribute="top" secondItem="kTZ-dw-vm7" secondAttribute="top" id="tLp-IS-utN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r28-qE-KO1" firstAttribute="trailing" secondItem="8Cf-xl-Agh" secondAttribute="trailing" id="4u7-lc-zvO"/>
+                            <constraint firstItem="8Cf-xl-Agh" firstAttribute="bottom" secondItem="FL8-1u-XBT" secondAttribute="bottom" constant="20" id="F59-Jw-uER"/>
+                            <constraint firstItem="kTZ-dw-vm7" firstAttribute="centerY" secondItem="FL8-1u-XBT" secondAttribute="centerY" id="Mff-7C-mh2"/>
+                            <constraint firstItem="kTZ-dw-vm7" firstAttribute="height" secondItem="FL8-1u-XBT" secondAttribute="height" id="QGg-MI-pyL"/>
+                            <constraint firstItem="kTZ-dw-vm7" firstAttribute="centerX" secondItem="FL8-1u-XBT" secondAttribute="centerX" id="QJm-WH-s0Y"/>
+                            <constraint firstItem="r28-qE-KO1" firstAttribute="leading" secondItem="8Cf-xl-Agh" secondAttribute="leading" id="Vhq-7s-tMI"/>
+                            <constraint firstItem="FL8-1u-XBT" firstAttribute="centerX" secondItem="8Cf-xl-Agh" secondAttribute="centerX" id="eRR-NQ-OdT"/>
+                            <constraint firstItem="r28-qE-KO1" firstAttribute="bottom" secondItem="8Cf-xl-Agh" secondAttribute="bottom" id="pBq-hr-uDI"/>
+                            <constraint firstItem="r28-qE-KO1" firstAttribute="top" secondItem="yvt-Ii-bjI" secondAttribute="top" id="vPX-B0-ois"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Cf-xl-Agh"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="pageSwiper" destination="r28-qE-KO1" id="ItI-dg-cox"/>
+                        <outlet property="postRecordButtons" destination="kTZ-dw-vm7" id="SOB-T6-iiq"/>
+                        <outlet property="recordButton" destination="FL8-1u-XBT" id="SmV-Jh-HHr"/>
+                        <outlet property="sceneView" destination="7pF-u1-syv" id="T10-rO-lFw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="128.18590704647679"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eXy-QS-lbj">
+            <objects>
+                <viewController storyboardIdentifier="ARViewController" id="zJg-o5-viy" customClass="ARViewController" customModule="ARFace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xPx-db-dQo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KO-nk-i7v" customClass="VirtualObjectARView" customModule="ARFace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="zJg-o5-viy" id="J5q-Id-bl2"/>
+                                    <outletCollection property="gestureRecognizers" destination="iGA-OU-3fw" appends="YES" id="6j4-5v-kxt"/>
+                                </connections>
+                            </arscnView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOJ-xc-dXX" userLabel="Actions">
+                                <rect key="frame" x="38.5" y="593" width="298" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe7-dY-R5S">
+                                        <rect key="frame" x="154" y="0.0" width="144" height="54"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="144" id="kyJ-bu-thH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Record">
+                                            <color key="titleColor" white="0.070000000000000007" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="placeInAR" destination="BV1-FR-VrT" eventType="touchUpInside" id="8LZ-Sb-HSk"/>
+                                            <action selector="record" destination="zJg-o5-viy" eventType="touchUpInside" id="mQf-on-LYi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPj-m2-dH2">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="54"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="144" id="H0y-8R-f26"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="0.070000000000000007" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="done" destination="zJg-o5-viy" eventType="touchUpInside" id="yIt-gi-fD8"/>
+                                            <action selector="startOver" destination="BV1-FR-VrT" eventType="touchUpInside" id="Zj1-bz-MnH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="21n-eP-DHd"/>
+                                    <constraint firstAttribute="bottom" secondItem="vPj-m2-dH2" secondAttribute="bottom" id="7I7-LB-bYh"/>
+                                    <constraint firstAttribute="bottom" secondItem="oe7-dY-R5S" secondAttribute="bottom" id="CVV-dA-3L8"/>
+                                    <constraint firstItem="oe7-dY-R5S" firstAttribute="top" secondItem="cOJ-xc-dXX" secondAttribute="top" id="FJ2-qU-rVm"/>
+                                    <constraint firstItem="vPj-m2-dH2" firstAttribute="top" secondItem="cOJ-xc-dXX" secondAttribute="top" id="aM6-EI-5H0"/>
+                                    <constraint firstItem="vPj-m2-dH2" firstAttribute="leading" secondItem="cOJ-xc-dXX" secondAttribute="leading" id="bR2-zu-WQq"/>
+                                    <constraint firstAttribute="trailing" secondItem="oe7-dY-R5S" secondAttribute="trailing" id="g1v-Ps-NIG"/>
+                                    <constraint firstItem="oe7-dY-R5S" firstAttribute="leading" secondItem="vPj-m2-dH2" secondAttribute="trailing" constant="10" id="ree-Gh-CJ0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cOJ-xc-dXX" firstAttribute="centerX" secondItem="H4d-wO-jPp" secondAttribute="centerX" id="d6D-tn-LmA"/>
+                            <constraint firstItem="H4d-wO-jPp" firstAttribute="bottom" secondItem="cOJ-xc-dXX" secondAttribute="bottom" constant="20" id="rSe-lI-qo0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H4d-wO-jPp"/>
+                    </view>
+                    <connections>
+                        <outlet property="actionsContainer" destination="cOJ-xc-dXX" id="Vhw-5X-Mg3"/>
+                        <outlet property="sceneView" destination="8KO-nk-i7v" id="jrB-TQ-IkG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BuJ-OV-b0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iGA-OU-3fw">
+                    <connections>
+                        <action selector="tappedWithSender:" destination="zJg-o5-viy" id="ZY0-qX-TWi"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="850" y="128"/>
         </scene>
     </scenes>
 </document>
